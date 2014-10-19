@@ -1,0 +1,308 @@
+
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #eeeeee;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+}
+
+header {
+    width: 100%;
+    height: 63px;
+    background-color: #234062;
+}
+
+header:after {
+    clear: both;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background-color: #170730;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+li {
+    list-style: none;
+}
+
+#logo-div {
+    width: 500px;
+    height: 100%;
+    float: left;
+}
+
+#logo-img {
+    width: 100%;
+}
+
+#user-main-div {
+    width: 200px;
+    float: right;
+    color: #ffffff;
+    padding-top: 20px;
+    margin-right: 50px;
+}
+
+#user-main-div:after {
+    clear: both;
+}
+
+#user-notification {
+    float: left;
+    padding: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#user-notification:hover {
+     color: #234062;
+     background-color: #ffffff;
+ }
+
+.user-notification-click {
+    color: #234062;
+    background-color: #ffffff;
+}
+
+#invited-match {
+    position: absolute;
+    top: 46px;
+    left: 830px;
+    padding: 0px;
+    width: 300px;
+    z-index: 100;
+    /*border: solid 1px #adadad;*/
+    border: 1px solid rgba(100, 100, 100, 0.4);
+    border-top: 0px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.invited-item {
+    background-color: #ffffff;
+    border-bottom: solid 1px #adadad;
+    color: #000000;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.invited-item:hover {
+    background-color: #f4f4f4;
+}
+
+.invited-user {
+    color: #1469ff;
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+.invited-article {
+    color: #000000;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.invited-time{
+    font-style: italic;
+    margin-left: 90px;
+}
+
+#user-sub-div {
+    width: 70%;
+    float: right;
+}
+
+#user-name {
+    font-size: 20px;
+    color: #ffffff;
+    margin-right: 5px;
+}
+#user-menu-i {
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#user-menu-i:hover {
+    color: #234062;
+    background-color: #ffffff;
+
+}
+
+#profile-menu {
+    position: absolute;
+    top: 45px;
+    left: 1120px;
+    padding: 0px;
+    z-index: 100;
+    background: none repeat scroll 0% 0% padding-box #FFF;
+    border: 1px solid rgba(100, 100, 100, 0.4);
+    border-radius: 3px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+    color: #000000;
+}
+
+.profile-menu-item {
+    border-bottom: solid 1px #adadad;
+}
+
+.profile-menu-item:hover {
+    background-color: #f4f4f4;
+}
+
+#body {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.left-section {
+    float: left;
+}
+
+#authen-section {
+    width: 29%;
+
+}
+
+.right-section {
+    float: right;
+}
+
+#info-section {
+    width: 69%;
+}
+
+.panel {
+}
+
+.panel-header {
+    border: solid 1px #205BA9;
+    border-radius: 5px 5px 0px 0px;
+    padding: 5px 5px 5px 20px;
+}
+
+.panel-header h3{
+margin-top: 18px;
+}
+
+.panel-body {
+    margin-top: -1px;
+    padding: 20px;
+    border: solid 1px #205BA9;
+    background-color: #ffffff;
+}
+
+.panel-light-blue .panel-header {
+    background-color: #00abff;
+    color: #ffffff;
+}
+
+.panel-dark-blue .panel-header {
+    background-color: #205BA9;
+    color: #ffffff;
+}
+
+.form-group {
+    margin: 5px;
+}
+
+.form-group input {
+    width: 260px;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+.button-group input {
+    margin-left: 70%;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 5px;
+    width: 80px;
+    height: 35px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    border: solid 1px #428bca;
+    background-color: #428bca;
+    color: #ffffff;
+}
+
+#top-speed-player {
+    float: left;
+    width: 45%;
+    text-align: center;
+}
+
+#top-speed-player table{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#top-speed-player h3 {
+    color: #205BA9;
+}
+
+#top-winner-player {
+    float: right;
+    width: 45%;
+    text-align: center;
+}
+
+#top-winner-player h3 {
+    color: #205BA9;
+}
+
+#top-winner-player table{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.top-player-item {
+}
+
+.top-player-item td {
+    width: 85px;
+    height: 27px;
+}
+
+.top-player-item .no {
+
+ }
+
+.top-player-item .name {
+    color: #1469ff;
+}
+
+.top-player-item .speed {
+
+}
+
+.hidden {
+    display: none;
+}
+
+

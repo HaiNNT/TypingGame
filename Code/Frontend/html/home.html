@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Typing Game</title>
+
+    <link href="style/style.css" rel="stylesheet" type="text/css">
+    <link href="style/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div id="logo-div">
+        <a href="home.html">
+            <img id="logo-img" src="image/logo.png">
+        </a>
+    </div>
+    <div id="user-main-div">
+        <i id="user-notification" class="fa fa-globe" onclick="showInvitedMatch()"></i>
+        <ul id="invited-match" class="hidden">
+            <li class="invited-item">
+                <a href="#">
+                    <div style="padding: 10px;">
+                        <span class="invited-user">TrungDQ</span>
+                        invited you in
+                        <span class="invited-article">Example</span><br><br>
+                        <span class="invited-time">11h24' 19-19-2014</span>
+                    </div>
+                </a>
+            </li>
+            <li class="invited-item">
+                <a href="#">
+                    <div style="padding: 10px;">
+                        <span class="invited-user">TrungDQ</span>
+                        invited you in
+                        <span class="invited-article">Example</span><br><br>
+                        <span class="invited-time">11h24' 19-19-2014</span>
+                    </div>
+                </a>
+            </li>
+            <li class="invited-item">
+                <a href="#">
+                    <div style="padding: 10px;">
+                        <span class="invited-user">TrungDQ</span>
+                        invited you in
+                        <span class="invited-article">Example</span><br><br>
+                        <span class="invited-time">11h24' 19-19-2014</span>
+                    </div>
+                </a>
+            </li>
+            <li class="invited-item">
+                <a href="#">
+                    <div style="padding: 10px;">
+                        <span class="invited-user">TrungDQ</span>
+                        invited you in
+                        <span class="invited-article">Example</span><br><br>
+                        <span class="invited-time">11h24' 19-19-2014</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div id="user-sub-div">
+            <a id="user-name" href="#">HaiNNT</a>
+            <i id="user-menu-i" class="fa fa-chevron-down" onclick="showProfileMenu()"></i>
+        </div>
+        <ul id="profile-menu" class="hidden">
+            <li class="profile-menu-item">
+                <a href="#">
+                <div style="padding: 10px;">Change password</div>
+            </a></li>
+            <li class="profile-menu-item">
+                <a href="#">
+                <div style="padding: 10px;">Log out</div>
+            </a></li>
+        </ul>
+    </div>
+    <div style="clear: both;"></div>
+</header>
+<div id="body">
+    <section id="authen-section" class="left-section">
+        <div class="panel panel-dark-blue">
+            <div class="panel-header"><h3>Login</h3></div>
+            <div class="panel-body">
+                <form id="authen-form" class="form" action="Authentication" method="post">
+                    <div id="username-group" class="form-group">
+                        <input type="text" name="txtUsername" placeholder="Username">
+                    </div>
+                    <div id="password-group" class="form-group">
+                        <input type="text" name="txtPassword" placeholder="Password">
+                    </div>
+                    <div id="type-group" class="form-group">
+                        <input style="width: 15px; height: 15px;" id="register" type="checkbox"
+                               onclick="chooseRegister()">
+                        <label for="register">Didn't have account</label>
+                        <input type="hidden" value="login" name="action" id="action-type">
+                    </div>
+                    <div id="register-param" class="hidden">
+                        <div id="confirm-password-group" class="form-group">
+                            <input type="text" name="txtConfirmPassword" placeholder="Confirm Password">
+                        </div>
+                        <div id="fullname-group" class="form-group">
+                            <input type="text" name="txtFullName" placeholder="Full name">
+                        </div>
+                        <div id="email-group" class="form-group">
+                            <input type="text" name="txtEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div id="button-group" class="button-group">
+                        <input type="submit" class="btn btn-submit" value="Login">
+                    </div>
+                </form>
+            </div>
+            <div class="pannel-footer"></div>
+        </div>
+    </section>
+    <section id="info-section" class="right-section">
+        <div class="panel panel-dark-blue">
+            <div class="panel-header">
+                <h3>Top 10 players</h3>
+            </div>
+            <div class="panel-body">
+                <div id="top-speed-player">
+                    <h3>Top 10 speed</h3>
+                    <table>
+                        <thead>
+                        <td>No</td>
+                        <td>Username</td>
+                        <td>Speed</td>
+                        </thead>
+                        <tbody>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">TrungDQ</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">ThieuGia19</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">TenDaiVaDeNho</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="top-winner-player">
+                    <h3>Top 10 winners</h3>
+                    <table>
+                        <thead>
+                        <td>No</td>
+                        <td>Username</td>
+                        <td>Winner</td>
+                        </thead>
+                        <tbody>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        <tr class="top-player-item">
+                            <td class="no">1</td>
+                            <td class="name">HaiNNT</td>
+                            <td class="speed">100</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="panel-footer"></div>
+        </div>
+    </section>
+    <div style="clear: both;"></div>
+</div>
+<footer>
+    <span>Typing Game - Copyright 2014 - Group 4</span>
+</footer>
+<script rel="script" type="application/javascript" src="script/script.js"></script>
+<script rel="script" type="application/javascript" src="script/jquery-1.11.1.js"></script>
+</body>
+</html>
