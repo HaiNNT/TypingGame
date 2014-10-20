@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2014 at 09:23 AM
+-- Generation Time: Oct 20, 2014 at 11:26 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -25,10 +25,10 @@ USE `typinggame`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Table structure for table `tgarticle`
 --
 
-CREATE TABLE IF NOT EXISTS `article` (
+CREATE TABLE IF NOT EXISTS `tgarticle` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `UserId` int(11) NOT NULL,
   `Content` text NOT NULL,
@@ -41,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `article` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `match`
+-- Table structure for table `tgmatch`
 --
 
-CREATE TABLE IF NOT EXISTS `match` (
+CREATE TABLE IF NOT EXISTS `tgmatch` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Mode` varchar(255) NOT NULL,
   `CreatedDate` datetime NOT NULL,
@@ -58,10 +58,10 @@ CREATE TABLE IF NOT EXISTS `match` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `result`
+-- Table structure for table `tgresult`
 --
 
-CREATE TABLE IF NOT EXISTS `result` (
+CREATE TABLE IF NOT EXISTS `tgresult` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `UserId` int(11) NOT NULL,
   `MatchId` int(11) NOT NULL,
@@ -75,10 +75,10 @@ CREATE TABLE IF NOT EXISTS `result` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Table structure for table `tgrole`
 --
 
-CREATE TABLE IF NOT EXISTS `role` (
+CREATE TABLE IF NOT EXISTS `tgrole` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`Id`)
@@ -87,10 +87,10 @@ CREATE TABLE IF NOT EXISTS `role` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `tguser`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE IF NOT EXISTS `tguser` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
@@ -107,10 +107,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userinrole`
+-- Table structure for table `tguserinrole`
 --
 
-CREATE TABLE IF NOT EXISTS `userinrole` (
+CREATE TABLE IF NOT EXISTS `tguserinrole` (
   `UserId` int(11) NOT NULL,
   `RoleId` int(11) NOT NULL,
   KEY `UserId` (`UserId`),
@@ -122,31 +122,31 @@ CREATE TABLE IF NOT EXISTS `userinrole` (
 --
 
 --
--- Constraints for table `article`
+-- Constraints for table `tgarticle`
 --
-ALTER TABLE `article`
-  ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`);
+ALTER TABLE `tgarticle`
+  ADD CONSTRAINT `tgarticle_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `tguser` (`Id`);
 
 --
--- Constraints for table `match`
+-- Constraints for table `tgmatch`
 --
-ALTER TABLE `match`
-  ADD CONSTRAINT `match_ibfk_2` FOREIGN KEY (`ArticleId`) REFERENCES `article` (`Id`),
-  ADD CONSTRAINT `match_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`);
+ALTER TABLE `tgmatch`
+  ADD CONSTRAINT `tgmatch_ibfk_2` FOREIGN KEY (`ArticleId`) REFERENCES `tgarticle` (`Id`),
+  ADD CONSTRAINT `tgmatch_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `tguser` (`Id`);
 
 --
--- Constraints for table `result`
+-- Constraints for table `tgresult`
 --
-ALTER TABLE `result`
-  ADD CONSTRAINT `result_ibfk_2` FOREIGN KEY (`MatchId`) REFERENCES `match` (`Id`),
-  ADD CONSTRAINT `result_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`);
+ALTER TABLE `tgresult`
+  ADD CONSTRAINT `tgresult_ibfk_2` FOREIGN KEY (`MatchId`) REFERENCES `tgmatch` (`Id`),
+  ADD CONSTRAINT `tgresult_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `tguser` (`Id`);
 
 --
--- Constraints for table `userinrole`
+-- Constraints for table `tguserinrole`
 --
-ALTER TABLE `userinrole`
-  ADD CONSTRAINT `userinrole_ibfk_2` FOREIGN KEY (`RoleId`) REFERENCES `role` (`Id`),
-  ADD CONSTRAINT `userinrole_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`);
+ALTER TABLE `tguserinrole`
+  ADD CONSTRAINT `tguserinrole_ibfk_2` FOREIGN KEY (`RoleId`) REFERENCES `tgrole` (`Id`),
+  ADD CONSTRAINT `tguserinrole_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `tguser` (`Id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
