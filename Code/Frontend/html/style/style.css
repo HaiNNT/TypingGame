@@ -481,6 +481,32 @@ progress {
     font-size: 1.3em;
 }
 
+#count-down {
+    padding-top: 95px;
+    text-align: center;
+    color: #d2d2d2;
+    font-style: italic;
+    height: 115px;
+    vertical-align: middle;
+}
+
+#help {
+    text-align: center;
+    color: #d2d2d2;
+    font-style: italic;
+    height: 115px;
+    vertical-align: middle;
+    padding-top: 95px;
+}
+
+#checked-paragraph {
+    color: blue;
+}
+
+#unchecked-paragraph {
+}
+
+
 .hidden {
     display: none;
 }

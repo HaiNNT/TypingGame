@@ -85,24 +85,35 @@
                 <form id="game-form" class="form" action="Game" method="post">
                     <div id="you-progress" class="form-group">
                         <label>You</label>
-                        <progress value="22" max="100"></progress>
+                        <progress value="0" max="100"></progress>
                         <div style="clear: both;"></div>
                     </div>
                     <div id="competitor-progress" class="form-group">
                         <label id="competitor-name" class="hidden">MinhHV</label>
                         <input type="text" name="txtUsername" placeholder="Competitor">
-                        <progress value="22" max="100"></progress>
+                        <progress value="0" max="100"></progress>
                         <div style="clear: both;"></div>
                     </div>
                     <div class="form-group">
                         <div id="game-article-content">
-                            <span id="checked-paragraph">An article (abbreviated art) is a word (or prefix or suffix) that is used with a noun to indicate the type of reference being made by the noun. Articles specify grammatical definiteness of the noun, in some languages extending to volume or numerical scope. The articles in the English language are the and a/an, and (in some contexts) some. 'An' and 'a' are modern forms of the Old English 'an'</span>
-                            <span id="unChecked-paragraph">, which in Anglian dialects was the number 'one' (compare 'on', in Saxon dialects) and survived into Modern Scots as the number 'ane'. Both 'on' (respelled 'one' by the Normans) and 'an' survived into Modern English, with 'one' used as the number and 'an' ('a', before nouns that begin with a consonant sound) as an indefinite article.</span>
+                            <div id="article-content-div" class="hidden">
+                            <span id="checked-paragraph"></span>
+                            <span id="unChecked-paragraph">Nguyễn Ngoc! Thanh Hai? Nguyen Ngoc Thanh Hai</span>
+                            </div>
+                            <div id="help" class="hidden">Click "Play" to begin game and invite competitor.</div>
+                            <div id="count-down">Click "Ready" and wait 3 seconds to play.</div>
                         </div>
                     </div>
                     <div class="button-group">
-                        <input id="play-button" type="submit" value="Play" class="btn btn-submit">
+                        <input id="input-text" type="text" style="float: left; margin-left: 20px; padding: 5px;" placeholder="You type here">
+                        <input id="begin-button" type="submit" value="Begin" class="btn btn-submit">
+                        <input id="play-button" type="button" value="Play" class="btn btn-submit" onclick="startGame()">
                         <div style="clear: both;"></div>
+                    </div>
+                    <div id="hidden-param">
+                        <span id="competitor-speed" class="hidden">36</span>
+                        <input type="hidden" name="txtSpeed">
+                        <input type="hidden" name="txtMatchId" value="">
                     </div>
                 </form>
             </div>
@@ -113,7 +124,9 @@
 <footer>
     <span>Typing Game - Copyright 2014 - Group 4</span>
 </footer>
-<script rel="script" type="application/javascript" src="script/script.js"></script>
 <script rel="script" type="application/javascript" src="script/jquery-1.11.1.js"></script>
+<script rel="script" type="application/javascript" src="script/script.js"></script>
+<script rel="script" type="application/javascript" src="script/keycode-enum.js"></script>
+<script rel="script" type="application/javascript" src="script/game.js"></script>
 </body>
 </html>
