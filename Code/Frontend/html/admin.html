@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Typing Game</title>
+
+    <link href="style/style.css" rel="stylesheet" type="text/css">
+    <link href="style/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div id="logo-div">
+        <a href="home.html">
+            <img id="logo-img" src="image/logo.png">
+        </a>
+    </div>
+    <div id="user-main-div">
+        <i id="user-notification" class="fa fa-globe" onclick="showInvitedMatch()"></i>
+        <ul id="invited-match" class="hidden">
+            <li class="invited-item">
+                <a href="#">
+                    <div style="padding: 10px;">
+                        <span class="invited-user">TrungDQ</span>
+                        invited you in
+                        <span class="invited-article">Example</span><br><br>
+                        <span class="invited-time">11h24' 19-19-2014</span>
+                    </div>
+                </a>
+            </li>
+            <li class="invited-item">
+                <a href="#">
+                    <div style="padding: 10px;">
+                        <span class="invited-user">TrungDQ</span>
+                        invited you in
+                        <span class="invited-article">Example</span><br><br>
+                        <span class="invited-time">11h24' 19-19-2014</span>
+                    </div>
+                </a>
+            </li>
+            <li class="invited-item">
+                <a href="#">
+                    <div style="padding: 10px;">
+                        <span class="invited-user">TrungDQ</span>
+                        invited you in
+                        <span class="invited-article">Example</span><br><br>
+                        <span class="invited-time">11h24' 19-19-2014</span>
+                    </div>
+                </a>
+            </li>
+            <li class="invited-item">
+                <a href="#">
+                    <div style="padding: 10px;">
+                        <span class="invited-user">TrungDQ</span>
+                        invited you in
+                        <span class="invited-article">Example</span><br><br>
+                        <span class="invited-time">11h24' 19-19-2014</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div id="user-sub-div">
+            <a id="user-name" href="profile.html">HaiNNT</a>
+            <i id="user-menu-i" class="fa fa-chevron-down" onclick="showProfileMenu()"></i>
+        </div>
+        <ul id="profile-menu" class="hidden">
+            <li class="profile-menu-item">
+                <a href="profile.html">
+                    <div style="padding: 10px;">Profile</div>
+                </a>
+            </li>
+            <li class="profile-menu-item">
+                <a href="#">
+                    <div style="padding: 10px;">Log out</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div style="clear: both;"></div>
+</header>
+
+<div id="body">
+    <section id="manage-user-section" class="left-section">
+        <div class="panel panel-dark-blue">
+            <div class="panel-header"><h3>Manage User</h3></div>
+            <div class="panel-body">
+                <form id="manage-user-form" class="form" action="admin" method="post">
+                    <div id="search-user-div" class="form-group">
+                        <i id="search-user-i" class="fa fa-search search-i"></i>
+                        <input type="text" name="txtUsername" placeholder="Username">
+                        <input type="hidden" name="action" value="search">
+                        <input type="hidden" name="txtType" value="user">
+                    </div>
+                    <ul id="recent-users">
+                        <h4>Recent Registered Users</h4>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                    </ul>
+                    <ul id="result-users" class="hidden">
+                        <h4>Result</h4>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                        <li><span>21/10/2014</span><label>MinhHV</label><a href="#"><i class="fa"></i></a></li>
+                    </ul>
+                </form>
+            </div>
+            <div class="pannel-footer"></div>
+            </div>
+    </section>
+
+    <section id="manage-article-section" class="right-section">
+        <div class="panel panel-dark-blue">
+            <div class="panel-header"><h3>Manage Article</h3></div>
+            <div class="panel-body">
+                <form id="manage-article-form" class="form" action="admin" method="post">
+                    <div id="search-article-div" class="form-group">
+                        <i id="search-article-i" class="fa fa-search search-i"></i>
+                        <input type="text" name="txtUsername" placeholder="Article name">
+                        <input type="hidden" name="action" value="search">
+                        <input type="hidden" name="txtType" value="article">
+                    </div>
+                    <div class="form-group">
+                        <div style="font-weight: bold;">Content</div>
+                        <textarea id="article-content" rows="10"></textarea>
+                    </div>
+                    <div class="button-group">
+                        <input type="submit" value="Save" class="btn btn-submit">
+                        <div style="clear: both;"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer"></div>
+            </div>
+    </section>
+    <div style="clear: both;"></div>
+</div>
+
+
+<footer>
+    <span>Typing Game - Copyright 2014 - Group 4</span>
+</footer>
+<script rel="script" type="application/javascript" src="script/script.js"></script>
+<script rel="script" type="application/javascript" src="script/jquery-1.11.1.js"></script>
+</body>
+</html>

@@ -131,6 +131,7 @@ li {
     color: #ffffff;
     margin-right: 5px;
 }
+
 #user-menu-i {
     cursor: pointer;
     border-radius: 3px;
@@ -147,6 +148,7 @@ li {
     top: 45px;
     left: 1120px;
     padding: 0px;
+    width: 140px;
     z-index: 100;
     background: none repeat scroll 0% 0% padding-box #FFF;
     border: 1px solid rgba(100, 100, 100, 0.4);
@@ -217,15 +219,20 @@ margin-top: 18px;
     color: #ffffff;
 }
 
+.form {
+    padding-right: 20px;
+}
+
 .form-group {
-    margin: 5px;
+    margin: 10px 5px 10px 5px;
 }
 
 .form-group input {
-    width: 260px;
-    height: 25px;
+    width: 100%;
+    height: 30px;
     padding-left: 10px;
     padding-right: 10px;
+    font-size: 17px;
 }
 
 .button-group {
@@ -233,7 +240,8 @@ margin-top: 18px;
 }
 
 .button-group input {
-    margin-left: 70%;
+    float: right;
+    margin-right: 20px;
 }
 
 .btn {
@@ -249,6 +257,27 @@ margin-top: 18px;
     border: solid 1px #428bca;
     background-color: #428bca;
     color: #ffffff;
+}
+
+.btn-cancel {
+    border: solid 1px #ddd;
+    background-color: #ddd;
+    color: #000000;
+}
+
+.btn-play {
+    border: solid 1px #5cb85c;
+    background-color: #5cb85c;
+    color: #ffffff;
+    width: 96%;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.btn-play:hover {
+    background-color: #53a353;
 }
 
 #top-speed-player {
@@ -299,6 +328,157 @@ margin-top: 18px;
 
 .top-player-item .speed {
 
+}
+
+#profile-section {
+    width: 39%;
+}
+
+#recent-matches-section {
+    width: 59%;
+}
+
+#edit-profile-i {
+    float: right;
+    margin-right: 20px;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+#edit-profile-i:hover {
+    background-color: #ffffff;
+    color: #205BA9;
+}
+
+#profile-info div{
+    margin: 10px;
+}
+
+#profile-info label {
+    font-weight: bold;
+    margin-right: 5px;
+    width: 100px;
+}
+
+#profile-info span {
+    color: #0055ff;
+}
+
+#recent-matches .item{
+    border-bottom: solid 1px #000000;
+    padding: 20px;
+    font-size: 20px;
+}
+
+#recent-matches .item:hover{
+    background-color: #eeeeee;
+}
+
+#recent-matches .time{
+    font-size: 15px;
+    font-style: italic;
+    margin-right: 20px;
+}
+
+#recent-matches .competitor{
+    color: #ff0000;
+    margin-right: 20px;
+}
+
+#recent-matches .match{
+    font-weight: bold;
+}
+
+#manage-user-section {
+    width: 39%;
+}
+
+#manage-article-section {
+    width: 59%;
+}
+
+.search-i {
+    position: relative;
+    left: 100%;
+    top: 28px;
+}
+
+#article-content {
+    margin-top: 5px;
+    width: 100%;
+    padding: 11px;
+    font-size: 1.3em;
+    resize: vertical;
+}
+
+#you-progress label {
+    color: blue;
+}
+
+#competitor-progress input{
+    width: 10%;
+}
+
+
+progress {
+    height: 25px;
+    /* Important Thing */
+    -webkit-appearance: none;
+    border: none;
+    float: right;
+    /*margin-right: 50px;*/
+    width: 85%;
+}
+
+/* All good till now. Now we'll style the background */
+#you-progress progress::-webkit-progress-bar {
+    background: #eee;
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Now the value part */
+#you-progress progress::-webkit-progress-value {
+    border-radius: 5px;
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+    background:
+    -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+    -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
+    -webkit-linear-gradient(left, #003bba, #0055ff);
+
+    /* Looks great, now animating it */
+    background-size: 25px 14px, 100% 100%, 100% 100%;
+    -webkit-animation: move 5s linear 0 infinite;
+}
+
+/* All good till now. Now we'll style the background */
+#competitor-progress progress::-webkit-progress-bar {
+    background: #eee;
+    border-radius: 5px;
+    padding: 2px;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Now the value part */
+#competitor-progress progress::-webkit-progress-value {
+    border-radius: 5px;
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+    background:
+    -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+    -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
+    -webkit-linear-gradient(left, #ee0000, #ff0024);
+
+    /* Looks great, now animating it */
+    background-size: 25px 14px, 100% 100%, 100% 100%;
+    -webkit-animation: move 5s linear 0 infinite;
+}
+
+#game-article-content {
+    border: solid 1px #000000;
+    margin: 5px;
+    padding: 10px;
+    font-size: 1.3em;
 }
 
 .hidden {
