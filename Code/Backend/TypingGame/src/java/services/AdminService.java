@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package service;
+package services;
 
 /**
  *
  * @author Administrator
  */
-public class ProfileService {
+public class AdminService {
     
 }
