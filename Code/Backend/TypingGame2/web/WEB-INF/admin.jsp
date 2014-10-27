@@ -96,7 +96,7 @@
                     <div id="search-article-div" class="form-group">
                         <i  id="search-user-i" class="fa fa-search search-i" onclick="submitFrom('#search-article-form')"></i>
                         <input type="hidden" name="action" value="search">
-                        <input type="text" name="txtName" placeholder="Article Name">
+                        <input type="text" name="txtName" placeholder="Search Article Name">
                     </div>
                 </form>
                 <form id="manage-article-form" class="form" action="Admin" method="post">
@@ -105,13 +105,14 @@
                         <c:choose>
                             <c:when test="${not empty requestScope.article}">
                                 <div style="font-weight: bold;">${requestScope.article.name}</div>
+                                <input type="hidden" value="update" name="action">
                                 <input type="hidden" value="${requestScope.article.id}" name="txtId" />
                                 <textarea id="article-content" rows="10" name="txtContent">${requestScope.article.content}</textarea>
                             </c:when>
                             <c:otherwise>
-                                <div style="font-weight: bold;">Content</div>
-                                <textarea id="article-content" rows="10">
-                                </textarea>
+                                <input type="text" name="txtName" placeholder="Article Name" />
+                                <input type="hidden" name="action" value="create" />
+                                <textarea id="article-content" rows="10" name="txtContent"></textarea>
                             </c:otherwise>
                         </c:choose>
 
@@ -134,7 +135,6 @@
                     </c:if>
 
                     <div class="button-group">
-                        <input type="hidden" value="update" name="action">
                         <input type="submit" value="Save" class="btn btn-submit">
                         <div style="clear: both;"></div>
                     </div>

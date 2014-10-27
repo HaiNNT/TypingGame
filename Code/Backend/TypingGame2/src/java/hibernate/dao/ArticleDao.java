@@ -6,6 +6,7 @@
 package hibernate.dao;
 
 import core.entities.Article;
+import core.entities.User;
 import core.idao.IArticleDao;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +27,7 @@ public class ArticleDao implements IArticleDao {
     @Override
     public Article getArticle(int id) {
         EntityManager manager = factory.createEntityManager();
-                try {
+        try {
             Article article = manager.find(hibernate.entities.Article.class, id);
             return article;
         } catch (NoResultException e) {
@@ -62,12 +63,14 @@ public class ArticleDao implements IArticleDao {
     }
 
     @Override
-    public boolean insertArticle(String name, String content) {
+    public boolean insertArticle(String name, String content, int userId) {
         EntityManager manager = factory.createEntityManager();
         try {
-            Article artcle = new hibernate.entities.Article(content, new Date(), name);
+            Article article = new hibernate.entities.Article(content, new Date(), name);
+            User user = manager.find(hibernate.entities.User.class, userId);
+            article.setCoreUserId(user);
             manager.getTransaction().begin();
-            manager.persist(artcle);
+            manager.persist(article);
             manager.flush();
             manager.getTransaction().commit();
             return true;

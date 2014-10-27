@@ -66,7 +66,7 @@ public class AdminServlet extends HttpServlet {
                     request.setAttribute("message", message);
                     request.getRequestDispatcher(Constant.JSP_ADMIN).forward(request, response);
                 } else {
-                    adService.createArticle(name, content);
+                    adService.createArticle(name, content, user.getId());
                     response.sendRedirect("Admin");
                 }
             } else if (action.equalsIgnoreCase("update")) {

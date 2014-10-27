@@ -19,7 +19,7 @@ public interface IArticleDao {
 
     public List<Article> getRecentArticles();
 
-    public boolean insertArticle(String name, String content);
+    public boolean insertArticle(String name, String content, int userId);
 
     public boolean updateArticle(String id, String content);
 

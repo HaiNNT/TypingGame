@@ -22,7 +22,7 @@ public interface IAdminService {
 
     public boolean updateUser(String userId, boolean active);
 
-    public boolean createArticle(String name, String content);
+    public boolean createArticle(String name, String content, int userId);
 
     public boolean updateArticle(String id, String content);
 

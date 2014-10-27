@@ -57,8 +57,8 @@ public class AdminService implements IAdminService {
     }
 
     @Override
-    public boolean createArticle(String name, String content) {
-        return aDao.insertArticle(name, content);
+    public boolean createArticle(String name, String content, int userId) {
+        return aDao.insertArticle(name, content, userId);
     }
 
     @Override
