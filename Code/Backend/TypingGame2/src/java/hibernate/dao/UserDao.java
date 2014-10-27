@@ -73,6 +73,7 @@ public class UserDao implements IUserDao {
             manager.getTransaction().commit();
             return true;
         } catch (Exception e) {
+            manager.getTransaction().rollback();
             return false;
         } finally {
             manager.close();
@@ -109,6 +110,7 @@ public class UserDao implements IUserDao {
             manager.getTransaction().commit();
             return true;
         } catch (Exception e) {
+            manager.getTransaction().rollback();
             return false;
         } finally {
             manager.close();
@@ -220,6 +222,7 @@ public class UserDao implements IUserDao {
             manager.getTransaction().commit();
             return user;
         } catch (NoResultException e) {
+            manager.getTransaction().rollback();
             return null;
         }
     }
@@ -286,8 +289,78 @@ public class UserDao implements IUserDao {
             return (User) query.getSingleResult();
         } catch (NoResultException e) {
             return null;
+        }
+    }
+
+    @Override
+    public List<User> getRecentUsers() {
+        EntityManager manager = factory.createEntityManager();
+        try {
+            Query query = manager.createQuery("SELECT u FROM User u "
+                    + "ORDER BY u.registerDate")
+                    .setMaxResults(10);
+            return query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public boolean activeUser(String userId) {
+        EntityManager manager = factory.createEntityManager();
+        try {
+            manager.getTransaction().begin();
+            User user = manager.find(hibernate.entities.User.class,  Integer.parseInt(userId));
+            if (user == null) {
+                return false;
+            }
+            user.setStatus(1);
+            manager.merge(user);
+            manager.flush();
+            manager.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            return false;
         } finally {
             manager.close();
+        }
+
+    }
+
+    @Override
+    public boolean unactiveUser(String userId) {
+        EntityManager manager = factory.createEntityManager();
+        try {
+            manager.getTransaction().begin();
+            User user = manager.find(hibernate.entities.User.class,  Integer.parseInt(userId));
+            if (user == null) {
+                return false;
+            }
+            user.setStatus(0);
+            manager.merge(user);
+            manager.flush();
+            manager.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            return false;
+        } finally {
+            manager.close();
+        }
+    }
+
+    @Override
+    public List<User> getUsers(String username) {
+        EntityManager manager = factory.createEntityManager();
+        try {
+            Query query = manager.createQuery("SELECT t FROM User t "
+                    + "WHERE t.username LIKE :username")
+                    .setParameter("username", "%" + username + "%")
+                    .setMaxResults(10);
+            return query.getResultList();
+        } catch (NoResultException e) {
+            return null;
         }
     }
 

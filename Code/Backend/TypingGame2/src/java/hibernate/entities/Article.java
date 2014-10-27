@@ -35,7 +35,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Article.findById", query = "SELECT a FROM Article a WHERE a.id = :id"),
     @NamedQuery(name = "Article.findByDateCreated", query = "SELECT a FROM Article a WHERE a.dateCreated = :dateCreated"),
     @NamedQuery(name = "Article.findByName", query = "SELECT a FROM Article a WHERE a.name = :name")})
-public class Article extends core.entities.Article{
+public class Article extends core.entities.Article {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -69,6 +69,12 @@ public class Article extends core.entities.Article{
 
     public Article(Integer id, String content, Date dateCreated, String name) {
         this.id = id;
+        this.content = content;
+        this.dateCreated = dateCreated;
+        this.name = name;
+    }
+
+    public Article(String content, Date dateCreated, String name) {
         this.content = content;
         this.dateCreated = dateCreated;
         this.name = name;
@@ -117,10 +123,10 @@ public class Article extends core.entities.Article{
     public List<Match> getMatchList() {
         return matchList;
     }
-       
+
     @Override
     public List<core.entities.Match> getCoreMatchList() {
-        return (List<core.entities.Match>)(List<?>) matchList;
+        return (List<core.entities.Match>) (List<?>) matchList;
     }
 
     public void setMatchList(List<Match> matchList) {

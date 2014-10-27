@@ -7,6 +7,7 @@
 package core.idao;
 
 import core.entities.Article;
+import java.util.List;
 
 /**
  *
@@ -15,4 +16,12 @@ import core.entities.Article;
 public interface IArticleDao {
     public Article getArticle(int id);
     public Article getRandomArticle();   
+
+    public List<Article> getRecentArticles();
+
+    public boolean insertArticle(String name, String content);
+
+    public boolean updateArticle(String id, String content);
+
+    public List<Article> getArticles(String name);
 }

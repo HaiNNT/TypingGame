@@ -51,21 +51,13 @@ public class AdminServlet extends HttpServlet {
             String action = request.getParameter("action") == null ? "view" : request.getParameter("action");
             if (action.equalsIgnoreCase("view")) {
                 List<User> users = adService.getRecentUsers();
-                List<Article> articles = adService.getRecentArticles();
-
-                request.setAttribute("users", users);
-                request.setAttribute("articles", articles);
-
+                request.getSession().setAttribute("users", users);
                 request.getRequestDispatcher(Constant.JSP_ADMIN).forward(request, response);
-
             } else if (action.equalsIgnoreCase("update-user")) {
-
                 String userId = request.getParameter("txtUserId");
                 boolean active = request.getParameter("txtActive").equalsIgnoreCase("true");
-
                 adService.updateUser(userId, active);
                 response.sendRedirect("Admin");
-
             } else if (action.equalsIgnoreCase("create")) {
                 String name = request.getParameter("txtName");
                 String content = request.getParameter("txtContent");
@@ -77,7 +69,6 @@ public class AdminServlet extends HttpServlet {
                     adService.createArticle(name, content);
                     response.sendRedirect("Admin");
                 }
-
             } else if (action.equalsIgnoreCase("update")) {
                 String id = request.getParameter("txtId");
                 String content = request.getParameter("txtContent");
@@ -89,23 +80,21 @@ public class AdminServlet extends HttpServlet {
                     adService.updateArticle(id, content);
                     response.sendRedirect("Admin");
                 }
-
-            } else if (action.equalsIgnoreCase("delete")) {
-                String id = request.getParameter("txtId");
-                adService.deleteArticle(id);
-                response.sendRedirect("Admin");
-
             } else if (action.equalsIgnoreCase("search-user")) {
-                String username = request.getParameter("txtUsername");
+                String username = request.getParameter("txtUsername") == null ? "" : request.getParameter("txtUsername");
                 List<User> users = adService.searchUser(username);
-                request.getSession().setAttribute("users", users);
-                response.sendRedirect(Constant.JSP_ADMIN);
-
+                request.getSession().setAttribute("resultUsers", users);
+                response.sendRedirect("Admin");
             } else if (action.equalsIgnoreCase("search")) {
-                String name = request.getParameter("txtName");
+                String name = request.getParameter("txtName") == null ? "" : request.getParameter("txtName");
                 List<Article> articles = adService.searchArticle(name);
                 request.getSession().setAttribute("articles", articles);
-                response.sendRedirect(Constant.JSP_ADMIN);
+                response.sendRedirect("Admin");
+            }else if(action.equalsIgnoreCase("get-article")){
+                String id = request.getParameter("txtId");
+                Article article = adService.getArticle(id);
+                request.setAttribute("article", article);
+                request.getRequestDispatcher(Constant.JSP_ADMIN).forward(request, response);
             }
         } else {
             response.sendRedirect("Home");

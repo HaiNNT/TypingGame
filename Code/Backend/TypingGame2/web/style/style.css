@@ -519,6 +519,15 @@ progress {
 #unchecked-paragraph {
 }
 
+.fa-ban {
+    margin-left: 100px;
+    color: red;
+}
+
+.fa-check {
+    margin-left: 100px;
+    color: green;
+}
 
 .hidden {
     display: none;

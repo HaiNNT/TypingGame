@@ -58,6 +58,7 @@ public class HomeServlet extends HttpServlet {
             session.setAttribute("user", user);
         } else if (aService.validAdmin(user)) {
             response.sendRedirect("Admin");
+            return;
         }
         List<User> users = hService.getTopSpeed();
         request.setAttribute("topSpeed", users);

@@ -52,6 +52,7 @@ public class ProfileServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         if (!auService.validPlayer(user)) {
             response.sendRedirect("Home");
+            return;
         } else {
         //Get profile user 
             // MinhHV - 10-22-2014

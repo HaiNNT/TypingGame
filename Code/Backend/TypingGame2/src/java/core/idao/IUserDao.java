@@ -5,7 +5,6 @@
  */
 package core.idao;
 
-import core.entities.Match;
 import core.entities.Role;
 import core.entities.User;
 import java.util.Date;
@@ -58,4 +57,16 @@ public interface IUserDao {
 
     //ThangNT
     public User getUserByUsername(String username);
+
+    //PhucTQ
+    public List<User> getRecentUsers();
+
+    //PhucTQ
+    public boolean activeUser(String userId);
+
+    //PhucTQ
+    public boolean unactiveUser(String userId);
+
+    //PhucTQ
+    public List<User> getUsers(String username);
 }

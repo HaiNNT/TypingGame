@@ -39,41 +39,49 @@ public class AdminService implements IAdminService {
 
     @Override
     public List<User> getRecentUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return uDao.getRecentUsers();
     }
 
     @Override
     public List<Article> getRecentArticles() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return aDao.getRecentArticles();
     }
 
     @Override
     public boolean updateUser(String userId, boolean active) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (active) {
+            return uDao.activeUser(userId);
+        } else {
+            return uDao.unactiveUser(userId);
+        }
     }
 
     @Override
     public boolean createArticle(String name, String content) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return aDao.insertArticle(name, content);
     }
 
     @Override
     public boolean updateArticle(String id, String content) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean deleteArticle(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return aDao.updateArticle(id, content);
     }
 
     @Override
     public List<User> searchUser(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return uDao.getUsers(username);
     }
 
     @Override
     public List<Article> searchArticle(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return aDao.getArticles(name);
+    }
+
+    @Override
+    public Article getArticle(String id) {
+        try {
+            return aDao.getArticle(Integer.parseInt(id));
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

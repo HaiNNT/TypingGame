@@ -23,12 +23,11 @@
                     <img id="logo-img" src="image/logo.png">
                 </a>
             </div>
-            <c:if test="${user.player}">
+            <c:if test="${not empty user}">
                 <div id="user-main-div">
-                    <i id="user-notification" class="fa fa-globe" onclick="showInvitedMatch()"></i>
-                    <ul id="invited-match" class="hidden">
-                        <c:if test="${ not empty user.matchList}">
-
+                    <c:if test="${ not empty user.matchList}">
+                        <i id="user-notification" class="fa fa-globe" onclick="showInvitedMatch()"></i>
+                        <ul id="invited-match" class="hidden">
                             <c:forEach var="item" items="${user.matchList}">
                                 <%--<c:if test="not empty ${item}">--%>
 
@@ -57,15 +56,24 @@
                         </c:if>
                     </ul>
                     <div id="user-sub-div">
-                        <a id="user-name" href="Profile?action=view">${user.username}</a>
+                        <c:choose>
+                            <c:when test="${user.player}">
+                                <a id="user-name" href="Profile?action=view">${user.username}</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a id="user-name" href="#">${user.username}</a>
+                            </c:otherwise>
+                        </c:choose>
                         <i id="user-menu-i" class="fa fa-chevron-down" onclick="showProfileMenu()"></i>
                     </div>
                     <ul id="profile-menu" class="hidden">
-                        <li class="profile-menu-item">
-                            <a href="Profile?action=view">
-                                <div style="padding: 10px;">Profile</div>
-                            </a>
-                        </li>
+                        <c:if test="${user.player}">                       
+                            <li class="profile-menu-item">
+                                <a href="Profile?action=view">
+                                    <div style="padding: 10px;">Profile</div>
+                                </a>
+                            </li>
+                        </c:if>
                         <li class="profile-menu-item">
                             <a href="Authentication?action=logout">
                                 <div style="padding: 10px;">Log out</div>

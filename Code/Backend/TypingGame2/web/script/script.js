@@ -72,3 +72,10 @@ function cancelEditProfile(){
     $("#profile-form").addClass("hidden");
 }
 
+/*
+ * Submit a form with form id
+ */
+function submitFrom(id){
+    $(id).submit();   
+}
+

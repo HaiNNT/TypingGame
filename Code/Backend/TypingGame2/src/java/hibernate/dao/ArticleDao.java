@@ -7,6 +7,8 @@ package hibernate.dao;
 
 import core.entities.Article;
 import core.idao.IArticleDao;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
@@ -23,7 +25,13 @@ public class ArticleDao implements IArticleDao {
 
     @Override
     public Article getArticle(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager manager = factory.createEntityManager();
+                try {
+            Article article = manager.find(hibernate.entities.Article.class, id);
+            return article;
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
@@ -35,6 +43,69 @@ public class ArticleDao implements IArticleDao {
                     + "ORDER BY RAND()) a limit 1", hibernate.entities.Article.class);
             Article article = (hibernate.entities.Article) query.getSingleResult();
             return article;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Article> getRecentArticles() {
+        EntityManager manager = factory.createEntityManager();
+        try {
+            Query query = manager.createQuery("SELECT a FROM Article a "
+                    + "ORDER BY a.dateCreated")
+                    .setMaxResults(10);
+            return query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public boolean insertArticle(String name, String content) {
+        EntityManager manager = factory.createEntityManager();
+        try {
+            Article artcle = new hibernate.entities.Article(content, new Date(), name);
+            manager.getTransaction().begin();
+            manager.persist(artcle);
+            manager.flush();
+            manager.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            return false;
+        } finally {
+            manager.close();
+        }
+    }
+
+    @Override
+    public boolean updateArticle(String id, String content) {
+        EntityManager manager = factory.createEntityManager();
+        try {
+            manager.getTransaction().begin();
+            Article article = manager.find(hibernate.entities.Article.class, Integer.parseInt(id));
+            article.setContent(content);
+            manager.flush();
+            manager.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            return false;
+        } finally {
+            manager.close();
+        }
+    }
+
+    @Override
+    public List<Article> getArticles(String name) {
+        EntityManager manager = factory.createEntityManager();
+        try {
+            Query query = manager.createQuery("SELECT a FROM Article a "
+                    + "WHERE a.name LIKE :name")
+                    .setParameter("name", "%" + name + "%")
+                    .setMaxResults(10);
+            return query.getResultList();
         } catch (NoResultException e) {
             return null;
         }

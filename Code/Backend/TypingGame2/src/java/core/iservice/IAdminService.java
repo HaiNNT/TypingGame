@@ -26,10 +26,10 @@ public interface IAdminService {
 
     public boolean updateArticle(String id, String content);
 
-    public boolean deleteArticle(String id);
-
     public List<User> searchUser(String username);
 
     public List<Article> searchArticle(String name);
+
+    public Article getArticle(String id);
     
 }
