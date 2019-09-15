@@ -1,4 +1,4 @@
 TypingGame
 ==========
 
-SAD Group Assmignment
+SAD Group Assignment (a university assignment)
